@@ -96,6 +96,7 @@ const Container = styled.div`
             gap:2rem;
             li{
                 a{
+                text-shadow:2px 2px 9px #000;
                 color:white;
                 text-decoration:none;
                 }

@@ -37,14 +37,14 @@ const movies=useSelector((state)=>state.netflix.movies);
   return (
     <Container>
       <Navbar isScrolled={isScrolled} />
-      <div className="hero">
+      <div className="hero-block">
         <img
           src={backgroundImage}
           alt="background"
           className="background-image"
         />
         <div className="container">
-          <div className="logo">
+          <div className="sub-title__logo logo">
             <img src={MovieLogo} alt="Movie Logo" />
           </div>
           <div className="buttons flex">
@@ -65,24 +65,27 @@ const movies=useSelector((state)=>state.netflix.movies);
 }
 const Container = styled.div`
   background-color: black;
-  .hero {
+  .hero-block{
     position: relative;
     .background-image {
       filter: brightness(60%);
     }
     img {
-      height: 100vh;
+      height: auto;
       width: 100vw;
     }
     .container {
       position: absolute;
-      bottom: 5rem;
+      bottom: 0;
       .logo {
         img {
-          width: 100%;
+          width: auto;
           height: 100%;
           margin-left: 5rem;
         }
+      }
+      .sub-title__logo{
+        display:block;
       }
       .buttons {
         margin: 5rem;

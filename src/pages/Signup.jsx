@@ -36,7 +36,7 @@ const handleSignIn=async()=>{
           <div className="text flex column">
             <h1>Unlimited movies,TV shows and more</h1>
             <h4>Watch anywhere . Cancel anytime</h4>
-            <h6>
+            <h6 className="para-caption">
               Ready to watch? Enter your email to create or start membership
             </h6>
           </div>
@@ -81,6 +81,11 @@ const Container = styled.div`
     width: 100vw;
     display: grid;
     grid-template-rows: 15vh 85vh;
+    .para-caption{
+      max-width:430px;
+      margin:0 auto;
+      line-height:1.5;
+    }
     .body {
       gap: 1rem;
       .text {
