@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import CardSlider from './CardSlider'
 import BrandLogo from "./BrandLogo";
 function Header(props) {
   const navigate = useNavigate();

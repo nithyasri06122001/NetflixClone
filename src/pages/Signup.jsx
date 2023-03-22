@@ -24,6 +24,7 @@ function Signup() {
     try {
       const { email, password } = formValues;
       await createUserWithEmailAndPassword(firebaseAuth, email, password);
+      navigate("/home");
     } catch (err) {
       console.log(err);
     }
