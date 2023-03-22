@@ -72,7 +72,8 @@ function Signup() {
   );
 }
 const Container = styled.div`
-  position: relative;
+height:100vh;
+  position: fixed;
   .content {
     position: absolute;
     top: 0;
