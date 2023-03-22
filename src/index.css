@@ -19,6 +19,11 @@ html,
 body {
   overflow-x: hidden;
 }
+
+p {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
 body::-webkit-scrollbar {
   display: none;
 }
@@ -68,4 +73,18 @@ button {
   border-radius: 0.25rem;
   width: 76px;
   height: 32px;
+}
+
+.cover-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -webkit-transform: scale(1.25) translateY(-10%);
+  -moz-transform: scale(1.25) translateY(-10%);
+  -ms-transform: scale(1.25) translateY(-10%);
+  transform: scale(1.25) translateY(-10%);
+}
+
+.mt-1 {
+  margin-top: 1rem;
 }

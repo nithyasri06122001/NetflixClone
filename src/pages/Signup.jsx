@@ -1,4 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -8,24 +11,23 @@ import { firebaseAuth } from "../utils/firebase_config";
 
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: "",
     password: "",
   });
-  onAuthStateChanged(firebaseAuth,(currentUser)=>{
-    if(currentUser) navigate("/");
-  })
+  onAuthStateChanged(firebaseAuth, (currentUser) => {
+    if (currentUser) navigate("/");
+  });
 
-const handleSignIn=async()=>{
-    try{
-       const {email,password}=formValues;
-       await createUserWithEmailAndPassword(firebaseAuth,email,password);
+  const handleSignIn = async () => {
+    try {
+      const { email, password } = formValues;
+      await createUserWithEmailAndPassword(firebaseAuth, email, password);
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-        console.log(err);
-    }
-}
+  };
 
   return (
     <Container showPassword={showPassword}>
@@ -35,9 +37,10 @@ const handleSignIn=async()=>{
         <div className="body flex column a-center j-center">
           <div className="text flex column">
             <h1>Unlimited movies, TV shows and more.</h1>
-            <p>Watch anywhere. Cancel anytime.</p>
+            <p className="mt-1">Watch anywhere. Cancel anytime.</p>
             <p className="para-caption">
-              Ready to watch? Enter your email to create or restart your membership.
+              Ready to watch? Enter your email to create or restart your
+              membership.
             </p>
           </div>
           <div className="form">
@@ -54,11 +57,18 @@ const handleSignIn=async()=>{
               }
             />
             {showPassword && (
-              <input type="password" placeholder="Password" name="password" value={formValues.password} onChange={(e) =>
-                setFormValues({
-                  ...formValues,
-                  [e.target.name]: e.target.value,
-                })}/>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={formValues.password}
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
             )}
             {!showPassword && (
               <button onClick={() => setShowPassword(true)}>Get started</button>
@@ -77,25 +87,29 @@ const Container = styled.div`
     top: 0;
     left: 0;
     background: rgb(0 0 0 / 40%);
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0,
+      rgba(0, 0, 0, 0) 60%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
     height: 100vh;
     width: 100vw;
     display: grid;
     grid-template-rows: 15vh 85vh;
-    .para-caption{
-      max-width:430px;
-      margin:0 auto;
-      line-height:1.5;
+    .para-caption {
+      margin: 0 auto;
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
     }
     .body {
-      gap: 1rem;
       .text {
         gap: 1rem;
         text-align: center;
-        font-size: 2rem;
         h1 {
           font-size: 3rem;
-          font-weight: 900
+          font-weight: 900;
         }
       }
       .form {
@@ -108,7 +122,13 @@ const Container = styled.div`
           border: none;
           padding: 1.5rem;
           font-size: 1.2rem;
-          border: 1px solid black;
+          border: 1px solid #605f5f;
+          transition: color 250ms cubic-bezier(0.5, 0, 0.1, 1) 0s;
+          width: 100%;
+          color: transparent;
+          line-height: 1.5rem;
+          padding: 1.5rem 1rem 0.5rem;
+          background: transparent;
           &:focus {
             outline: none;
           }
