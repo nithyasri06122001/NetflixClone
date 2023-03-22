@@ -10,7 +10,7 @@ function BackgroundImage() {
   )
 }
 const Container=styled.div`
-  height:100vh;
+  height:auto;
   width:100vw;
   img{
     height:100vh;

@@ -82,7 +82,7 @@ function Signup() {
   );
 }
 const Container = styled.div`
-  position: relative;
+  position: fixed;
   .content {
     position: absolute;
     top: 0;
