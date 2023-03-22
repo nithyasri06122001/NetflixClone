@@ -34,11 +34,11 @@ const handleSignIn=async()=>{
         <Header login />
         <div className="body flex column a-center j-center">
           <div className="text flex column">
-            <h1>Unlimited movies,TV shows and more</h1>
-            <h4>Watch anywhere . Cancel anytime</h4>
-            <h6 className="para-caption">
-              Ready to watch? Enter your email to create or start membership
-            </h6>
+            <h1>Unlimited movies, TV shows and more.</h1>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <p className="para-caption">
+              Ready to watch? Enter your email to create or restart your membership.
+            </p>
           </div>
           <div className="form">
             <input
@@ -76,7 +76,8 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgb(0 0 0 / 40%);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -93,7 +94,8 @@ const Container = styled.div`
         text-align: center;
         font-size: 2rem;
         h1 {
-          padding: 0.25rem;
+          font-size: 3rem;
+          font-weight: 900
         }
       }
       .form {
