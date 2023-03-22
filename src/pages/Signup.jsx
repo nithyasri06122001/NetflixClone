@@ -37,7 +37,7 @@ function Signup() {
         <div className="body flex column a-center j-center">
           <div className="text flex column">
             <h1>Unlimited movies, TV shows and more.</h1>
-            <p>Watch anywhere. Cancel anytime.</p>
+            <p className="mt-1">Watch anywhere. Cancel anytime.</p>
             <p className="para-caption">
               Ready to watch? Enter your email to create or restart your
               membership.
@@ -98,31 +98,18 @@ const Container = styled.div`
     display: grid;
     grid-template-rows: 15vh 85vh;
     .para-caption {
-      max-width: 430px;
       margin: 0 auto;
-      line-height: 1.5;
-      font-size:1.25rem;
+      font-weight: 400;
+      font-size: 1.25rem;
+      line-height: 1.875rem;
     }
     .body {
-      gap: 1rem;
       .text {
         gap: 1rem;
         text-align: center;
-        font-size: 2rem;
         h1 {
           font-size: 3rem;
           font-weight: 900;
-        }
-        h3 {
-          font-size: 1.5rem;
-          font-width:
-        }
-        p {
-          font-size: 1.5rem;
-        }
-        .para-caption{
-          font-size: 1.25rem;
-          
         }
       }
       .form {
@@ -135,7 +122,13 @@ const Container = styled.div`
           border: none;
           padding: 1.5rem;
           font-size: 1.2rem;
-          border: 1px solid black;
+          border: 1px solid #605f5f;
+          transition: color 250ms cubic-bezier(0.5, 0, 0.1, 1) 0s;
+          width: 100%;
+          color: transparent;
+          line-height: 1.5rem;
+          padding: 1.5rem 1rem 0.5rem;
+          background: transparent;
           &:focus {
             outline: none;
           }
