@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FaPowerOff, FaSearch } from "react-icons/fa";
-import logo from "../assests/logo.png";
+import BrandLogo from "./BrandLogo";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../utils/firebase_config";
 function Navbar({ isScrolled }) {
-    const navigate=useNavigate();
+  const navigate = useNavigate();
   const links = [
     { name: "Home", link: "/home" },
     { name: "TV Shows", link: "/tv" },
@@ -21,13 +21,14 @@ function Navbar({ isScrolled }) {
     if (!currentUser) navigate("/login");
   });
 
-
   return (
     <Container>
       <nav className={`flex ${isScrolled ? "scrolled" : ""}`}>
         <div className="left flex a-center">
           <div className="brand flex a-center j-center">
-            <img src={logo} alt="logo" />
+            <div className="brand-logo">
+              <BrandLogo />
+            </div>
           </div>
           <ul className="links flex">
             {links.map((l) => {
@@ -69,94 +70,93 @@ function Navbar({ isScrolled }) {
   );
 }
 const Container = styled.div`
-   .scrolled{
-    background-color:black;
-   }
-   nav{
-    position:sticky;
-    top:0;
-    height:6.5rem;
-    width:100%;
-    justify-content:space-between;
-    position:fixed;
-    z-index:2;
-    padding:0 4rem;
-    align-items:center;
-    transition:0.3s ease-in-out;
+  .scrolled {
+    background-color: black;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    height: 6.5rem;
+    width: 100%;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+    padding: 0 4rem;
+    align-items: center;
+    transition: 0.3s ease-in-out;
 
-    .left{
-        gap:2rem;
-        .brand{
-            img{
-                height:4rem;
-            }
+    .left {
+      gap: 2rem;
+      .brand {
+        img {
+          height: 4rem;
         }
-        .links{
-            list-style-type:none;
-            gap:2rem;
-            li{
-                a{
-                text-shadow:2px 2px 9px #000;
-                color:white;
-                text-decoration:none;
-                }
-            } 
+      }
+      .links {
+        list-style-type: none;
+        gap: 2rem;
+        li {
+          a {
+            text-shadow: 2px 2px 9px #000;
+            color: white;
+            text-decoration: none;
+          }
         }
+      }
     }
-   
-   .right{
-    gap:1rem;
-    button{
-        background-color:transparent;
-        border:none;
-        cursor:pointer;
-        &:focus{
-            outline:none;
+
+    .right {
+      gap: 1rem;
+      button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &:focus {
+          outline: none;
         }
-        svg{
-            color:#f34242;
-            font-size:1.2rem;
+        svg {
+          color: #f34242;
+          font-size: 1.2rem;
         }
+      }
+      .search {
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0.2rem;
+        padding-left: 0.5rem;
+        button {
+          background-color: transparent;
+          svg {
+            color: white;
+          }
+        }
+        input {
+          width: 0;
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.3 s ease-in-out;
+          background-color: transparent;
+          border: none;
+          color: white;
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .show-search {
+        border: 1px solid white;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.6);
+        input {
+          width: 100%;
+          opacity: 1;
+          visibility: visible;
+          padding: 0.3rem;
+        }
+      }
     }
-    .search{
-        display:flex;
-        gap:0.4rem;
-        align-items:center;
-        justify-content:center;
-        padding:0.2rem;
-        padding-left:0.5rem;
-        button{
-            background-color:transparent;
-            svg{
-                color:white;
-            }
-        }
-        input{
-            width:0;
-            opacity:0;
-            visibility:hidden;
-            transition:0.3 s ease-in-out;
-            background-color:transparent;
-            border:none;
-            color:white;
-            &:focus{
-                outline:none;
-            }
-        }
-    }
-    .show-search{
-        border:1px solid white;
-        border-radius:5px;
-        background-color:rgba(0,0,0,0.6);
-        input{
-            width:100%;
-            opacity:1;
-            visibility:visible;
-            padding:0.3rem;
-           
-        }
-    }
-   }
-}
+  }
 `;
 export default Navbar;
