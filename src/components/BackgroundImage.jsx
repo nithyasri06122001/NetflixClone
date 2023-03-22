@@ -5,7 +5,7 @@ import styled  from 'styled-components';
 function BackgroundImage() {
   return (
     <Container>
-        <img src={background} alt="background" />
+        <img className='cover-image' src={background} alt="background" />
     </Container>
   )
 }
