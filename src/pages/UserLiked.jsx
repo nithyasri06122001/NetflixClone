@@ -31,7 +31,7 @@ const UserLiked = () => {
     if(email){
         dispatch(getUserLikedMovies(email))
     }
-  }, [email]);
+  }, [email,dispatch]);
 
  
 

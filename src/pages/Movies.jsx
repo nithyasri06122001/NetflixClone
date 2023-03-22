@@ -19,13 +19,13 @@ export default function Movies() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getGenres());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     if (genresLoaded) {
       dispatch(fetchMovies({ type: "movies" }));
     }
-  }, [genresLoaded]);
+  }, [genresLoaded,dispatch]);
 
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
