@@ -13,7 +13,7 @@ function Signup() {
     password: "",
   });
   onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (currentUser) navigate("/");
+    if (currentUser) navigate("/home");
   });
 
   const handleLogIn = async () => {

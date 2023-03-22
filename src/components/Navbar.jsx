@@ -8,7 +8,7 @@ import { firebaseAuth } from "../utils/firebase_config";
 function Navbar({ isScrolled }) {
     const navigate=useNavigate();
   const links = [
-    { name: "Home", link: "/" },
+    { name: "Home", link: "/home" },
     { name: "TV Shows", link: "/tv" },
     { name: "Movies", link: "/movies" },
     { name: "My List", link: "/mylist" },
