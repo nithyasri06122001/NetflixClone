@@ -18,7 +18,9 @@ function Navbar({ isScrolled }) {
   const [inputHover, setInputHover] = useState(false);
 
   onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if (!currentUser) navigate("/login");
+    if (!currentUser) {
+      navigate("/login");
+    }
   });
 
   return (

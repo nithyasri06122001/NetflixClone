@@ -31,7 +31,7 @@ console.log(movies);
     if(email){
         dispatch(getUserLikedMovies(email))
     }
-  }, [email]);
+  }, [email,dispatch]);
 
  
 
