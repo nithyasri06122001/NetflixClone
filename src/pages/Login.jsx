@@ -15,13 +15,15 @@ function Signup() {
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) navigate("/home");
   });
-
+  
+  const [error,setError]=useState();
   const handleLogIn = async () => {
     try {
       const { email, password } = formValues;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (err) {
-      console.log(err);
+      console.log(err.message)
+         setError("Enter Valid Credentials");
     }
   };
 
@@ -33,7 +35,7 @@ function Signup() {
         <div className="form-container flex column a-center j-center">
           <div className="form flex column a-center j-center">
             <div className="title">
-              <h1>Login</h1>
+              <h1>Sign in</h1>
             </div>
             <div className="container flex column">
               <input
@@ -41,11 +43,13 @@ function Signup() {
                 placeholder="Email Address"
                 name="email"
                 value={formValues.email}
+                onClick={()=>{setError("")}}
                 onChange={(e) =>
                   setFormValues({
                     ...formValues,
                     [e.target.name]: e.target.value,
                   })
+                 
                 }
               />
 
@@ -54,6 +58,7 @@ function Signup() {
                 placeholder="Password"
                 name="password"
                 value={formValues.password}
+                onClick={()=>{setError("")}}
                 onChange={(e) =>
                   setFormValues({
                     ...formValues,
@@ -64,6 +69,7 @@ function Signup() {
               <button onClick={handleLogIn}>Log in</button>
             </div>
           </div>
+              {error && <h1>{error}</h1>}
         </div>
       </div>
     </Container>
