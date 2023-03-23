@@ -1,6 +1,6 @@
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import BackgroundImage from "../components/BackgroundImage";
 import Header from "../components/Header";
@@ -23,7 +23,7 @@ function Signup() {
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (err) {
       console.log(err.message)
-         setError("Enter Valid Credentials");
+         setError("Sorry, we can't find an account with this email address. Please try again or create a new account.");
     }
   };
 
@@ -33,10 +33,14 @@ function Signup() {
       <div className="content">
         <Header />
         <div className="form-container flex column a-center j-center">
-          <div className="form flex column a-center j-center">
+          <div className="form flex column  j-center">
             <div className="title">
               <h1>Sign in</h1>
             </div>
+            {error && <div className='error-pop'>
+             <p>{error}</p>
+            </div>
+             }
             <div className="container flex column">
               <input
                 type="email"
@@ -68,8 +72,11 @@ function Signup() {
               />
               <button onClick={handleLogIn}>Log in</button>
             </div>
+            <div className="flex new_ac">
+              <div>New to Netflix?</div>
+              <Link to='/'>Sign up now.</Link>
+            </div>
           </div>
-              {error && <h1>{error}</h1>}
         </div>
       </div>
     </Container>
@@ -104,18 +111,20 @@ height:100vh;
         color: white;
         .container {
           gap: 2rem;
-          input {
+         
+          input { 
+            height: 50px;
             padding: 0.5rem 1rem;
             width: 15rem;
             transition: color 250ms cubic-bezier(0.5, 0, 0.1, 1) 0s;
             width: 100%;
             color: transparent;
             line-height: 1.5rem;
-            height: 56px;
             padding: 15px;
             border-radius: 3px;
           }
           button {
+            height: 50px;
             padding: 0.5rem 1rem;
             background-color: #e50914;
             border: none;
@@ -128,6 +137,25 @@ height:100vh;
         }
       }
     }
+    .error-pop{
+      background-color:#fc7500;
+      border-radius:4px;
+      padding:10px 20px;
+      font-size:14px;
+    }
+    .new_ac{
+      color:#737373;
+      font-size:16px;
+      a{
+      color:#fff;
+      text-decoration:none;
+      font-weight: 400;
+       &:hover{
+        text-decoration:underline;
+       }
+      }
+    }
   }
+
 `;
 export default Signup;
