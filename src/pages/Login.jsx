@@ -15,15 +15,17 @@ function Signup() {
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) navigate("/home");
   });
-  
-  const [error,setError]=useState();
+
+  const [error, setError] = useState();
   const handleLogIn = async () => {
     try {
       const { email, password } = formValues;
       await signInWithEmailAndPassword(firebaseAuth, email, password);
     } catch (err) {
-      console.log(err.message)
-         setError("Sorry, we can't find an account with this email address. Please try again or create a new account.");
+      console.log(err.message);
+      setError(
+        "Sorry, we can't find an account with this email address. Please try again or create a new account."
+      );
     }
   };
 
@@ -37,23 +39,21 @@ function Signup() {
             <div className="title">
               <h1>Sign in</h1>
             </div>
-            {error && <div className='error-pop'>
-             <p>{error}</p>
-            </div>
-             }
+            {error && <div className="error-pop">{error}</div>}
             <div className="container flex column">
               <input
                 type="email"
                 placeholder="Email Address"
                 name="email"
                 value={formValues.email}
-                onClick={()=>{setError("")}}
+                onClick={() => {
+                  setError("");
+                }}
                 onChange={(e) =>
                   setFormValues({
                     ...formValues,
                     [e.target.name]: e.target.value,
                   })
-                 
                 }
               />
 
@@ -62,7 +62,9 @@ function Signup() {
                 placeholder="Password"
                 name="password"
                 value={formValues.password}
-                onClick={()=>{setError("")}}
+                onClick={() => {
+                  setError("");
+                }}
                 onChange={(e) =>
                   setFormValues({
                     ...formValues,
@@ -73,8 +75,8 @@ function Signup() {
               <button onClick={handleLogIn}>Log in</button>
             </div>
             <div className="flex new_ac">
-              <div>New to Netflix?</div>
-              <Link to='/'>Sign up now.</Link>
+              <div>New to Netflix? </div>
+              <Link to="/"> Sign up now.</Link>
             </div>
           </div>
         </div>
@@ -83,7 +85,7 @@ function Signup() {
   );
 }
 const Container = styled.div`
-height:100vh;
+  height: 100vh;
   position: fixed;
   .content {
     position: absolute;
@@ -111,17 +113,18 @@ height:100vh;
         color: white;
         .container {
           gap: 2rem;
-         
-          input { 
+          input {
             height: 50px;
             padding: 0.5rem 1rem;
             width: 15rem;
             transition: color 250ms cubic-bezier(0.5, 0, 0.1, 1) 0s;
             width: 100%;
-            color: transparent;
+            color: white;
             line-height: 1.5rem;
             padding: 15px;
+            border: none;
             border-radius: 3px;
+            background-color: #333;
           }
           button {
             height: 50px;
@@ -137,25 +140,25 @@ height:100vh;
         }
       }
     }
-    .error-pop{
-      background-color:#fc7500;
-      border-radius:4px;
-      padding:10px 20px;
-      font-size:14px;
+    .error-pop {
+      background-color: #fc7500;
+      border-radius: 4px;
+      padding: 10px 20px;
+      font-size: 14px;
     }
-    .new_ac{
-      color:#737373;
-      font-size:16px;
-      a{
-      color:#fff;
-      text-decoration:none;
-      font-weight: 400;
-       &:hover{
-        text-decoration:underline;
-       }
+    .new_ac {
+      color: #737373;
+      font-size: 16px;
+      a {
+        margin-left: 4px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 400;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
-
 `;
 export default Signup;
