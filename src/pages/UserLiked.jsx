@@ -26,7 +26,7 @@ const UserLiked = () => {
       navigate("/login");
     }
   });
-
+console.log(movies);
   useEffect(() => {
     if(email){
         dispatch(getUserLikedMovies(email))
@@ -48,9 +48,10 @@ const UserLiked = () => {
         <div className="content flex column">
             <h1>My list</h1>
             <div className="grid flex">
-                {movies.map((movie,index)=>{
+                {movies && movies.map((movie,index)=>{
                       return <Card movieData={movie} index={index} key={movie.id} isLiked={true}/>
                 })}
+                {!movies && <h1>No Liked Movies</h1>}
             </div>
         </div>
     </Container>
