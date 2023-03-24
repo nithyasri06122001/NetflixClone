@@ -75,7 +75,7 @@ function Signup() {
               <button onClick={() => setShowPassword(true)}>Get started</button>
             )}
           </div>
-          <button onClick={handleSignIn}>Sign Up</button>
+          <button className="sign__up"onClick={handleSignIn}>Sign Up</button>
         </div>
       </div>
     </Container>
@@ -100,6 +100,7 @@ const Container = styled.div`
     grid-template-rows: 15vh 85vh;
     .para-caption {
       margin: 0 auto;
+      margin-bottom:10px;
       font-weight: 400;
       font-size: 1.25rem;
       line-height: 1.875rem;
@@ -121,21 +122,20 @@ const Container = styled.div`
         input {
           color: black;
           border: none;
-          padding: 1.5rem;
+          padding: 24px 16px;
           font-size: 1.2rem;
           border: 1px solid #605f5f;
           transition: color 250ms cubic-bezier(0.5, 0, 0.1, 1) 0s;
           width: 100%;
-          color: transparent;
+          color: white;
           line-height: 1.5rem;
-          padding: 1.5rem 1rem 0.5rem;
-          background: transparent;
+          background: rgba(0,0,0,.75);
           &:focus {
             outline: none;
           }
         }
         button {
-          padding: 0.5rem 1rem;
+          padding:24px 16px ;
           background-color: #e50914;
           border: none;
           color: white;
@@ -153,6 +153,9 @@ const Container = styled.div`
         border-radius: 0.2rem;
         font-weight: bolder;
         font-size: 1.05rem;
+      }
+      .sign__up{
+        margin-top:10px;
       }
     }
   }
