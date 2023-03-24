@@ -23,7 +23,7 @@ export default function Movies() {
 
   useEffect(() => {
     if (genresLoaded) {
-      dispatch(fetchMovies({ type: "movies" }));
+      dispatch(fetchMovies({ type: "movie" }));
     }
   }, [genresLoaded,dispatch]);
 

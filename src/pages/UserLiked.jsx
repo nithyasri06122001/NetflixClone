@@ -26,7 +26,6 @@ const UserLiked = () => {
       navigate("/login");
     }
   });
-console.log(movies);
   useEffect(() => {
     if(email){
         dispatch(getUserLikedMovies(email))

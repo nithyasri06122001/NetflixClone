@@ -62,7 +62,7 @@ export const fetchMovies = createAsyncThunk(
 );
 
 export const fetchDataByGenre = createAsyncThunk(
-  "netflix/moviesbygenres",
+  "netflix/genre",
   async ({ genre, type }, thunkApi) => {
     const {
       netflix: { genres },
@@ -123,3 +123,5 @@ export const store = configureStore({
     netflix: NetflixSlice.reducer,
   },
 });
+
+export const {setGenres,setMovies}=NetflixSlice.actions;
