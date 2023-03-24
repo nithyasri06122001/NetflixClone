@@ -47,12 +47,6 @@ button {
   cursor: pointer;
 }
 
-@media (max-width: 576px) {
-  nav {
-    visibility: hidden;
-  }
-}
-
 .brand-container {
   /* max-width: 1028px; */
   width: calc(83.3333% - 96px);
@@ -87,4 +81,59 @@ button {
 
 .mt-1 {
   margin-top: 1rem;
+}
+
+@media (max-width: 576px) {
+  nav {
+    /* visibility: hidden !important; */
+    background: #000 !important;
+    padding: 0 2rem !important;
+  }
+
+  .content .para-caption {
+    margin-bottom: 25px !important;
+  }
+
+  .content .body .text h1 {
+    font-size: 2.25rem !important;
+  }
+
+  .content .body .form {
+    width: 85% !important;
+    grid-template-columns: auto !important;
+  }
+
+  .brand-container {
+    width: calc(83.3333% - 6px) !important;
+  }
+
+  .content .body .sign__up {
+    padding: 16px 40px !important;
+  }
+
+  nav .left .links {
+    display: none !important;
+  }
+
+  .hero-block {
+    margin-top: 86px !important;
+  }
+
+  .hero-block .container .buttons button:nth-of-type(2) {
+    display: none !important;
+  }
+
+  p {
+    font-size: 1.25rem !important;
+  }
+
+  .hero-block .container .buttons {
+    margin: 2rem !important;
+    gap: 1rem !important;
+  }
+
+  .hero-block .container .logo img {
+    width: 70% !important;
+    margin-left: 2rem !important;
+  }
 }

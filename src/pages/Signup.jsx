@@ -46,6 +46,7 @@ function Signup() {
           </div>
           <div className="form">
             <input
+              required
               type="email"
               placeholder="Email Address"
               name="email"
@@ -109,6 +110,7 @@ const Container = styled.div`
       .text {
         gap: 1rem;
         text-align: center;
+        padding: 0 26px;
         h1 {
           font-size: 3rem;
           font-weight: 900;
@@ -156,6 +158,7 @@ const Container = styled.div`
       }
       .sign__up{
         margin-top:10px;
+        padding: 16px 50px;
       }
     }
   }
